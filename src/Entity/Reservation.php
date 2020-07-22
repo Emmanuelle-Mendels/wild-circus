@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Reservation
 {
-    const CATEGORIE = ["cat 1","cat 2","cat 3"];
+    const CATEGORY = ["catégorie 1" =>"cat 1","catégorie 2"=>"cat 2","catégorie 3" => "cat 3"];
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

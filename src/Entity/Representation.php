@@ -6,6 +6,7 @@ use App\Repository\RepresentionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=RepresentionRepository::class)
@@ -20,12 +21,12 @@ class Representation
     private $id;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $date;
 
     /**
-     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="representation", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="admin_representation", orphanRemoval=true)
      */
     private $reservations;
 

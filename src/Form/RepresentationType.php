@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Representation;
+
 use Symfony\Component\Form\AbstractType;
+
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,8 +17,8 @@ class RepresentationType extends AbstractType
         $builder
             ->add('date', DateTimeType::class, [
                 'placeholder' => [
-                    'year' => 'Year', 'month' => 'Month', 'day' => 'Day',
-                    'hour' => 'Hour', 'minute' => 'Minute',
+                    'day' => 'Jour', 'month' => 'Mois', 'year' => 'Année',
+                    'hour' => 'Heure', 'minute' => 'Minute',
                 ]
             ])
         ;

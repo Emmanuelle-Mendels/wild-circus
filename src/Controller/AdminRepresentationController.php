@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/representation")
+ * @Route("/admin/representation")
  */
 class AdminRepresentationController extends AbstractController
 {
@@ -20,7 +20,7 @@ class AdminRepresentationController extends AbstractController
      */
     public function index(RepresentionRepository $representionRepository): Response
     {
-        return $this->render('representation/index.html.twig', [
+        return $this->render('admin_representation/index.html.twig', [
             'representations' => $representionRepository->findAll(),
         ]);
     }
@@ -43,8 +43,8 @@ class AdminRepresentationController extends AbstractController
             return $this->redirectToRoute('representation_index');
         }
 
-        return $this->render('representation/new.html.twig', [
-            'representation' => $representation,
+        return $this->render('admin_representation/new.html.twig', [
+            'admin_representation' => $representation,
             'form' => $form->createView(),
         ]);
     }
@@ -54,8 +54,8 @@ class AdminRepresentationController extends AbstractController
      */
     public function show(Representation $representation): Response
     {
-        return $this->render('representation/show.html.twig', [
-            'representation' => $representation,
+        return $this->render('admin_representation/show.html.twig', [
+            'admin_representation' => $representation,
         ]);
     }
 
@@ -74,8 +74,8 @@ class AdminRepresentationController extends AbstractController
             return $this->redirectToRoute('representation_index');
         }
 
-        return $this->render('representation/edit.html.twig', [
-            'representation' => $representation,
+        return $this->render('admin_representation/edit.html.twig', [
+            'admin_representation' => $representation,
             'form' => $form->createView(),
         ]);
     }
