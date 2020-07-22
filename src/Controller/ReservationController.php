@@ -38,6 +38,7 @@ class ReservationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($reservation);
             $entityManager->flush();
+            $this->addFlash('success', 'La réservation a bien été effectuée');
 
             return $this->redirectToRoute('reservation_index');
         }
@@ -68,6 +69,7 @@ class ReservationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'La réservation a bien été modifiée');
 
             return $this->redirectToRoute('reservation_index');
         }
@@ -87,6 +89,7 @@ class ReservationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($reservation);
             $entityManager->flush();
+            $this->addFlash('success', 'La performance a bien été supprimée');
         }
 
         return $this->redirectToRoute('reservation_index');

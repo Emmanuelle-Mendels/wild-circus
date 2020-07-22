@@ -11,3 +11,8 @@ vich_uploader:
       uri_prefix: /uploads/performances
       upload_destination:  '%upload_directory%/performances'
       namer: Vich\UploaderBundle\Naming\UniqidNamer
+
+    artist_image:
+      uri_prefix: /uploads/artists
+      upload_destination:  '%upload_directory%/artists'
+      namer: Vich\UploaderBundle\Naming\UniqidNamer
