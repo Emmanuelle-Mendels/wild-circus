@@ -32,7 +32,7 @@ class Event
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $picture;
 
@@ -132,16 +132,18 @@ class Event
         return $this;
     }
 
-    public function getPictureFile(): ?File
-    {
-        return $this->pictureFile;
-    }
-
-    public function setPictureFile(File $picture = null): void
+    public function setPictureFile(File $picture = null)
     {
         $this->pictureFile = $picture;
         if ($picture) {
             $this->updatedAt = new DateTime('now');
         }
     }
+
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
+
+
 }

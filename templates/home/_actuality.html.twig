@@ -1,0 +1,9 @@
+<div>
+    <h2>Dernières informations</h2>
+    {% for event in events %}
+        {{ event.title }}
+        <img class="card-img-top card-actu-img" src="{{ vich_uploader_asset(event, 'pictureFile') }}"
+             alt="{{ event.title }}">
+
+    {% endfor %}
+</div>

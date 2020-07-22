@@ -4,5 +4,5 @@ vich_uploader:
   mappings:
     event_image:
       uri_prefix: /uploads/events
-      upload_destination:  '%upload_directory%'
+      upload_destination:  '%upload_directory%/events'
       namer: Vich\UploaderBundle\Naming\UniqidNamer

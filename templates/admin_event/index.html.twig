@@ -4,30 +4,29 @@
 
 {% block body %}
     <h1>Event index</h1>
-
+    <div class="text-right m-5">
+    <a class="btn-primary" href="{{ path('event_new') }}">Nouveau</a>
+    </div>
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Picture</th>
+                <th>Titre</th>
                 <th>Description</th>
                 <th>Focus</th>
                 <th>Date</th>
-                <th>UpdatedAt</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for event in events %}
             <tr>
-                <td>{{ event.id }}</td>
                 <td>{{ event.title }}</td>
-                <td>{{ event.picture }}</td>
                 <td>{{ event.description }}</td>
                 <td>{{ event.focus ? 'Yes' : 'No' }}</td>
-                <td>{{ event.date ? event.date|date('Y-m-d') : '' }}</td>
-                <td>{{ event.updatedAt ? event.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event.date ? event.date|date('d-m-Y') : '' }}</td>
+                <td>
+                <img class="card-img-top card-actu-img" src="{{ vich_uploader_asset(event, 'pictureFile') }}"
+                     alt="{{ event.title }}"></td>
                 <td>
                     <a href="{{ path('event_show', {'id': event.id}) }}">show</a>
                     <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
@@ -35,11 +34,9 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8">pas d'actualité trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('event_new') }}">Create new</a>
 {% endblock %}
