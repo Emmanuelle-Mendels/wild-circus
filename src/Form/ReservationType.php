@@ -29,22 +29,18 @@ class ReservationType extends AbstractType
             ->add('representation', EntityType::class, [
                 'class' => Representation::class,
                 'choice_label' => 'id',
-                'label'=> 'Représentation',
+                'label' => 'Représentation',
                 'expanded' => true,
                 'multiple' => false,
-                'by_reference' => false,
             ])
             ->add('category', ChoiceType::class, [
                 'choices' => Reservation::CATEGORY,
-                'required'   => false,
                 'label' => "Catégorie",
-
             ])
             ->add('nb_adult', IntegerType::class, [
                 'label' => "Nombre de billets adultes"])
             ->add('nb_child', IntegerType::class, [
-                    'label' => "Nombre de billets enfants"])
-        ;
+                'label' => "Nombre de billets enfants"]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -11,16 +11,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/reservation")
+ * @Route("/admin/reservation")
  */
-class ReservationController extends AbstractController
+class AdminReservationController extends AbstractController
 {
     /**
      * @Route("/", name="reservation_index", methods={"GET"})
      */
     public function index(ReservationRepository $reservationRepository): Response
     {
-        return $this->render('reservation/index.html.twig', [
+        return $this->render('admin_reservation/index.html.twig', [
             'reservations' => $reservationRepository->findAll(),
         ]);
     }
@@ -43,7 +43,7 @@ class ReservationController extends AbstractController
             return $this->redirectToRoute('reservation_index');
         }
 
-        return $this->render('reservation/new.html.twig', [
+        return $this->render('admin_reservation/new.html.twig', [
             'reservation' => $reservation,
             'form' => $form->createView(),
         ]);
@@ -54,7 +54,7 @@ class ReservationController extends AbstractController
      */
     public function show(Reservation $reservation): Response
     {
-        return $this->render('reservation/show.html.twig', [
+        return $this->render('admin_reservation/show.html.twig', [
             'reservation' => $reservation,
         ]);
     }
@@ -74,7 +74,7 @@ class ReservationController extends AbstractController
             return $this->redirectToRoute('reservation_index');
         }
 
-        return $this->render('reservation/edit.html.twig', [
+        return $this->render('admin_reservation/edit.html.twig', [
             'reservation' => $reservation,
             'form' => $form->createView(),
         ]);
