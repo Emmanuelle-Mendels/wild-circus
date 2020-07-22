@@ -1,8 +1,12 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}Accueil Wild Circus{% endblock %}
+
+
 {% block body %}
-<h1>Bienvenu au wild circus</h1>
-
-
-<p>je fais un test pour vérifier les polices
-</p>
+<h1 class="text-primary text-center">Bienvenu au wild circus</h1>
+    {% include 'home/_actuality.html.twig' %}
+    {% include 'home/_reservations.html.twig' %}
+    {% include 'home/_show.html.twig' %}
+    {% include 'home/_map.html.twig' %}
 {% endblock %}
