@@ -1,9 +1,16 @@
-<div>
-    <h2>Dernières informations</h2>
+<section class="col-10 offset-1 my-4">
+    <h2 class="text-center m-5">Dernières informations</h2>
+    <div class="row justify-content-center justify-content-md-around">
     {% for event in events %}
-        {{ event.title }}
-        <img class="card-img-top card-actu-img" src="{{ vich_uploader_asset(event, 'pictureFile') }}"
+    <div class="card event-card">
+        <img class="card-img-top event-card-img" src="{{ vich_uploader_asset(event, 'pictureFile') }}"
              alt="{{ event.title }}">
-
+        <div class="card-body">
+            <h5 class="card-title">{{ event.title }}</h5>
+            <p class="card-text">{{ event.description|length > 150 ? actuality.content|slice(0, 150) ~ '...' : event.description }} }}</p>
+            <a href="#" class="btn btn-primary">Plus d'infos</a>
+        </div>
+    </div>
     {% endfor %}
-</div>
+    </div>
+</section>

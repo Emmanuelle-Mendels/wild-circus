@@ -1,10 +1,11 @@
 @import "vars";
+@import "homeEventcard";
 @import "~bootstrap/scss/bootstrap";
 
 body {
     font-family: $text;
 }
 
-h1 {
+h1,h2 {
     font-family: $title;
 }
