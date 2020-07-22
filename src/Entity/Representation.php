@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RepresentionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,19 +25,14 @@ class Representation
     private $date;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="representation", orphanRemoval=true)
      */
-    private $Max_cat1;
+    private $reservations;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $Max_cat2;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $Max_cat3;
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -54,38 +51,33 @@ class Representation
         return $this;
     }
 
-    public function getMaxCat1(): ?int
+    /**
+     * @return Collection|Reservation[]
+     */
+    public function getReservations(): Collection
     {
-        return $this->Max_cat1;
+        return $this->reservations;
     }
 
-    public function setMaxCat1(int $Max_cat1): self
+    public function addReservation(Reservation $reservation): self
     {
-        $this->Max_cat1 = $Max_cat1;
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setRepresentation($this);
+        }
 
         return $this;
     }
 
-    public function getMaxCat2(): ?int
+    public function removeReservation(Reservation $reservation): self
     {
-        return $this->Max_cat2;
-    }
-
-    public function setMaxCat2(int $Max_cat2): self
-    {
-        $this->Max_cat2 = $Max_cat2;
-
-        return $this;
-    }
-
-    public function getMaxCat3(): ?int
-    {
-        return $this->Max_cat3;
-    }
-
-    public function setMaxCat3(int $Max_cat3): self
-    {
-        $this->Max_cat3 = $Max_cat3;
+        if ($this->reservations->contains($reservation)) {
+            $this->reservations->removeElement($reservation);
+            // set the owning side to null (unless already changed)
+            if ($reservation->getRepresentation() === $this) {
+                $reservation->setRepresentation(null);
+            }
+        }
 
         return $this;
     }

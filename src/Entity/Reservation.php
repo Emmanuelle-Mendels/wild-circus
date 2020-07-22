@@ -4,12 +4,14 @@ namespace App\Entity;
 
 use App\Repository\ReservationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ReservationRepository::class)
  */
 class Reservation
 {
+    const CATEGORIE = ["cat 1","cat 2","cat 3"];
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -46,6 +48,12 @@ class Reservation
      * @ORM\Column(type="integer", nullable=true)
      */
     private $nb_child;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Representation::class, inversedBy="reservations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $representation;
 
     public function getId(): ?int
     {
@@ -120,6 +128,18 @@ class Reservation
     public function setNbChild(?int $nb_child): self
     {
         $this->nb_child = $nb_child;
+
+        return $this;
+    }
+
+    public function getRepresentation(): ?Representation
+    {
+        return $this->representation;
+    }
+
+    public function setRepresentation(?Representation $representation): self
+    {
+        $this->representation = $representation;
 
         return $this;
     }
