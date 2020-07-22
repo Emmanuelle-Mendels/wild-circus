@@ -11,19 +11,19 @@
                     Présentation
                 </a>
                 <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Notre Histoire</a>
-                    <a class="dropdown-item" href="#">Nos Perfomances</a>
+                    <a class="dropdown-item" href="{{ path('app_artist') }}">Notre histoire, nos artistes</a>
+                    <a class="dropdown-item" href="{{ path('app_performance') }}">Nos Perfomances</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Réservations</a>
+                <a class="nav-link" href="{{ path('app_reservation') }}">Réservations</a>
 
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Évènements</a>
+                <a class="nav-link" href="{{ path('app_event') }}">Évènements</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="{{ path('app_contact') }}">Contact</a>
             </li>
         </ul>
 
