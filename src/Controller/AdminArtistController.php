@@ -11,16 +11,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/artist")
+ * @Route("/admin_artist")
  */
-class ArtistController extends AbstractController
+class AdminArtistController extends AbstractController
 {
     /**
      * @Route("/", name="artist_index", methods={"GET"})
      */
     public function index(ArtistRepository $artistRepository): Response
     {
-        return $this->render('artist/index.html.twig', [
+        return $this->render('admin_artist/index.html.twig', [
             'artists' => $artistRepository->findAll(),
         ]);
     }
@@ -38,12 +38,13 @@ class ArtistController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($artist);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'artiste a bien été créé');
 
             return $this->redirectToRoute('artist_index');
         }
 
-        return $this->render('artist/new.html.twig', [
-            'artist' => $artist,
+        return $this->render('admin_artist/new.html.twig', [
+            'admin_artist' => $artist,
             'form' => $form->createView(),
         ]);
     }
@@ -53,8 +54,8 @@ class ArtistController extends AbstractController
      */
     public function show(Artist $artist): Response
     {
-        return $this->render('artist/show.html.twig', [
-            'artist' => $artist,
+        return $this->render('admin_artist/show.html.twig', [
+            'admin_artist' => $artist,
         ]);
     }
 
@@ -68,12 +69,13 @@ class ArtistController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'L\'artiste a bien été modifié');
 
             return $this->redirectToRoute('artist_index');
         }
 
-        return $this->render('artist/edit.html.twig', [
-            'artist' => $artist,
+        return $this->render('admin_artist/edit.html.twig', [
+            'admin_artist' => $artist,
             'form' => $form->createView(),
         ]);
     }
@@ -87,6 +89,7 @@ class ArtistController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($artist);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'artiste a bien été supprimé');
         }
 
         return $this->redirectToRoute('artist_index');

@@ -5,8 +5,8 @@
 {% block body %}
     <h1 class="text-center text-primary m-5">Éditer un artiste</h1>
 
-    {{ include('artist/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    {{ include('admin_artist/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('artist_index') }}">Retour à la liste</a>
+    <a href="{{ path('artist_index') }}"class="btn btn-light m-5">Retour à la liste</a>
 
 {% endblock %}
