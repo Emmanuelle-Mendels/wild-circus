@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass=ShowRepository::class)
  * @ORM\Table(name="`show`")
  */
-class Show
+class Performance
 {
     /**
      * @ORM\Id()

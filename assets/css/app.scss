@@ -1,6 +1,10 @@
-
+@import "vars";
 @import "~bootstrap/scss/bootstrap";
 
 body {
-    background-color: lightgray;
+    font-family: $text;
+}
+
+h1 {
+    font-family: $title;
 }
