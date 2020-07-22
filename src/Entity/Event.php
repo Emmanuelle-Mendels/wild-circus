@@ -3,13 +3,19 @@
 namespace App\Entity;
 
 use App\Repository\EventRepository;
+use \DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity(repositoryClass=EventRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
+ * @Vich\Uploadable
  */
 class Event
 {
+    const MAX_SIZE="500k";
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -19,6 +25,9 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez indiquer le titre de l'article")
+     * @Assert\Length(max=255, maxMessage="Le nom du titre {{ value }} est trop long,
+     * il ne devrait pas dépasser {{ limit }} caractères")
      */
     private $title;
 
@@ -27,6 +36,16 @@ class Event
      */
     private $picture;
 
+    /**
+     * @Vich\UploadableField(mapping="event_image", fileNameProperty="picture")
+     * @var File|null
+     * @Assert\File(maxSize = Event::MAX_SIZE,
+     *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
+     * il ne doit pas dépasser {{ limit }} {{ suffix }}",
+     *     mimeTypes = {"image/jpeg", "image/jpg", "image/gif","image/png"},
+     *     mimeTypesMessage = "Veuillez entrer un type de fichier valide: jpg, jpeg, png ou gif.")
+     */
+    private $pictureFile;
     /**
      * @ORM\Column(type="text")
      */
@@ -41,6 +60,12 @@ class Event
      * @ORM\Column(type="date")
      */
     private $date;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var DateTime|null
+     */
+    private $updatedAt;
 
     public function getId(): ?int
     {
@@ -105,5 +130,18 @@ class Event
         $this->date = $date;
 
         return $this;
+    }
+
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
+
+    public function setPictureFile(File $picture = null): void
+    {
+        $this->pictureFile = $picture;
+        if ($picture) {
+            $this->updatedAt = new DateTime('now');
+        }
     }
 }
