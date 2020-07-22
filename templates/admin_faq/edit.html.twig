@@ -1,13 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Faq{% endblock %}
+{% block title %}Édition F.A.Q.{% endblock %}
 
 {% block body %}
-    <h1>Edit Faq</h1>
+    <h1 class="text-center text-primary m-5">Éditer une F.A.Q.</h1>
 
-    {{ include('admin_faq/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin_faq/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('faq_index') }}">back to list</a>
+    <a href="{{ path('faq_index') }}" class="btn btn-light m-5">Retour à la liste</a>
 
-    {{ include('admin_faq/_delete_form.html.twig') }}
 {% endblock %}
