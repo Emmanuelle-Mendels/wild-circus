@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArtistRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class Artist
      * @ORM\Column(type="boolean")
      */
     private $focus;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Performance::class, mappedBy="Artist")
+     */
+    private $performances;
+
+    public function __construct()
+    {
+        $this->performances = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +115,34 @@ class Artist
     public function setFocus(bool $focus): self
     {
         $this->focus = $focus;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Performance[]
+     */
+    public function getPerformances(): Collection
+    {
+        return $this->performances;
+    }
+
+    public function addPerformance(Performance $performance): self
+    {
+        if (!$this->performances->contains($performance)) {
+            $this->performances[] = $performance;
+            $performance->addArtist($this);
+        }
+
+        return $this;
+    }
+
+    public function removePerformance(Performance $performance): self
+    {
+        if ($this->performances->contains($performance)) {
+            $this->performances->removeElement($performance);
+            $performance->removeArtist($this);
+        }
 
         return $this;
     }

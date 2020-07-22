@@ -46,8 +46,10 @@ class Event
      *     mimeTypesMessage = "Veuillez entrer un type de fichier valide: jpg, jpeg, png ou gif.")
      */
     private $pictureFile;
+
     /**
      * @ORM\Column(type="text")
+     *@Assert\NotBlank(message="Veuillez décrire la admin_performance")
      */
     private $description;
 
