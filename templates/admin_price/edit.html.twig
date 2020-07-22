@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Édition Tarif{% endblock %}
+
+{% block body %}
+    <h1 class="text-primary text-center m-5">Édition tarif</h1>
+
+    {{ include('admin_price/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('price_index') }}"class="btn btn-light m-5">Retour à la liste</a>
+
+{% endblock %}

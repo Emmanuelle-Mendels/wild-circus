@@ -10,6 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Price
 {
+    const CATEGORY = ["catégorie 1" =>"cat 1","catégorie 2"=>"cat 2","catégorie 3" => "cat 3"];
+    const TYPE = ["Adulte" =>"Adulte","Enfant"=>"Enfant"];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
