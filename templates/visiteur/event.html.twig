@@ -3,4 +3,17 @@
 {% block title %}Évènements{% endblock %}
 
 {% block body %}
+    <h1 class="text-center text-primary m-5">Évènements</h1>
+    {% for event in events %}
+
+        <div class="text-center">
+            <img class="" src="{{ vich_uploader_asset(event, 'pictureFile') }}"
+                 alt="{{ event.title }}">
+            <div>{{ event.date|date("d-m-y") }}</div>
+                <h5 class="">{{ event.title }}</h5>
+                <p class="">{{ event.description }}</p>
+            </div>
+        </div>
+        <hr class="mb-5">
+    {% endfor %}
 {% endblock %}

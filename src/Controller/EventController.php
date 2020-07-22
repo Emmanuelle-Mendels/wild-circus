@@ -17,7 +17,7 @@ class EventController extends AbstractController
     public function index()
     {
         $events = $this->getDoctrine()
-            ->getRepository(Artist::class)
+            ->getRepository(Event::class)
             ->findAll();
 
         return $this->render('visiteur/event.html.twig', [

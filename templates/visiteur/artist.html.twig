@@ -3,4 +3,14 @@
 {% block title %}Artistes{% endblock %}
 
 {% block body %}
+    <h1 class="text-center text-primary m-5">Nos artistes</h1>
+    {% for artist in artists %}
+        <div class="text-center">
+            <img class="" src="{{ vich_uploader_asset(artist, 'pictureFile') }}"
+                 alt="{{ artist.name }}">
+            <h5 class="">{{ artist.name }}</h5>
+            <p>{{ artist.speciality }}</p>
+            <p class="">{{ artist.text }}</p>
+        </div>
+    {% endfor %}
 {% endblock %}

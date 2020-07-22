@@ -3,4 +3,13 @@
 {% block title %}Performances{% endblock %}
 
 {% block body %}
+    <h1 class="text-center text-primary m-5">Nos performances</h1>
+    {% for performance in performances %}
+        <div class="text-center">
+            <img class="" src="{{ vich_uploader_asset(performance, 'pictureFile') }}"
+                 alt="{{ performance.name }}">
+            <h5 class="">{{ performance.name }}</h5>
+            <p class="">{{ performance.description }}</p>
+        </div>
+    {% endfor %}
 {% endblock %}
