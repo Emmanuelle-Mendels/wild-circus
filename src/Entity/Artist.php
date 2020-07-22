@@ -17,6 +17,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Artist
 {
+    const MAX_SIZE="500k";
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
