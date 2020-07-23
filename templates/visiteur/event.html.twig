@@ -10,9 +10,9 @@
                 <div class="text-center">
                     <img class="event-img w-100" src="{{ vich_uploader_asset(event, 'pictureFile') }}"
                          alt="{{ event.title }}">
-                    <h5 class="">{{ event.title }}</h5>
-                    <div>{{ event.date|date("d-m-y") }}</div>
-                    <p class="">{{ event.description|nl2br }}</p>
+                    <h5 class="mt-4">{{ event.title }}</h5>
+                    <div class="p-2">{{ event.date|date("d-m-y") }}</div>
+                    <p class="text-left">{{ event.description|nl2br }}</p>
                 </div>
             </div>
             <hr class="mb-5">

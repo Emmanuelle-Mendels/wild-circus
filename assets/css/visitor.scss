@@ -14,6 +14,8 @@
 
 .event-img {
   max-width: 800px;
+  max-height: 800px;
+  object-fit: cover;
 }
 
 .map-responsive {
@@ -26,3 +28,4 @@
     height: 100%;
   }
 }
+
