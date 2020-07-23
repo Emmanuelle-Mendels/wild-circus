@@ -54,11 +54,6 @@ class Event
     private $description;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $focus;
-
-    /**
      * @ORM\Column(type="date")
      */
     private $date;
@@ -106,18 +101,6 @@ class Event
     public function setDescription(string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getFocus(): ?bool
-    {
-        return $this->focus;
-    }
-
-    public function setFocus(bool $focus): self
-    {
-        $this->focus = $focus;
 
         return $this;
     }

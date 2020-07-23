@@ -29,7 +29,6 @@ class EventType extends AbstractType
                 'delete_label' => 'Supprimer cette image',
             ])
             ->add('description', TextareaType::class)
-            ->add('focus')
             ->add('date', DateType::class, [
                 'label' => 'Date: jour/mois/année',
                 'widget' => 'single_text',

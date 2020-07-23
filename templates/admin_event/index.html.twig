@@ -12,7 +12,6 @@
             <tr>
                 <th>Titre</th>
                 <th>Description</th>
-                <th>Focus</th>
                 <th>Date</th>
                 <th></th>
                 <th></th>
@@ -23,7 +22,6 @@
             <tr>
                 <td>{{ event.title }}</td>
                 <td>{{ event.description }}</td>
-                <td>{{ event.focus ? 'Oui' : 'Non' }}</td>
                 <td>{{ event.date ? event.date|date('d-m-Y') : '' }}</td>
                 <td class="align-middle">
                     <a href="{{ path('event_edit', {'id': event.id}) }}"><svg class="bi bi-pencil-square" width="24px" height="24px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

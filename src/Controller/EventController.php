@@ -18,7 +18,7 @@ class EventController extends AbstractController
     {
         $events = $this->getDoctrine()
             ->getRepository(Event::class)
-            ->findAll();
+            ->findBy([], ['date' => 'desc']);
 
         return $this->render('visiteur/event.html.twig', [
             'events' => $events,
