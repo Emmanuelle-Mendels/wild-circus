@@ -6,7 +6,7 @@
 <section class="col-10 offset-1 my-4">
     <h1 class="text-center text-primary m-5">Nos artistes</h1>
     {% for artist in artists %}
-        <div class="container-artist flex flex-wrap">
+        <div class="container-artist ">
             <div class="artist d-flex flex-wrap">
                 <img class="artist-img" src="{{ vich_uploader_asset(artist, 'pictureFile') }}"
                      alt="{{ artist.name }}">

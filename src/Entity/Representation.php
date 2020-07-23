@@ -52,6 +52,11 @@ class Representation
         return $this;
     }
 
+    public function getDateString($format = 'd-m-Y H:i')
+    {
+        return $this->date->format($format);
+    }
+
     /**
      * @return Collection|Reservation[]
      */
