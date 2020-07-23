@@ -1,8 +1,12 @@
 <h1>Confirmation de votre réservation</h1>
+
+<div>Vos Coordonnées : </div>
 <p>{{ reservation.name }}</p>
 <p>{{ reservation.email}}</p>
 <p>{{ reservation.phone}}</p>
+
+<div>Votre réservation</div>
 <p>Catégorie : {{ reservation.category}}</p>
 <p>nombre de billets adultes: {{ reservation.nbadult}}</p>
 <p>nombre de billets enfants: {{ reservation.nbadult}}</p>
-<p>{{ reservation.representation.id}}</p>
+<p>{{ reservation.representation.date|date('Y-m-d H:i')}}</p>

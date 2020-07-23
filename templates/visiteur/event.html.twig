@@ -5,7 +5,7 @@
 {% block body %}
     <h1 class="text-center text-primary m-5">Évènements</h1>
     {% for event in events %}
-
+        <div class="w-100 "id="article_{{ event.id }}">
         <div class="text-center">
             <img class="" src="{{ vich_uploader_asset(event, 'pictureFile') }}"
                  alt="{{ event.title }}">
@@ -14,6 +14,7 @@
                 <p class="">{{ event.description }}</p>
             </div>
         </div>
+        </
         <hr class="mb-5">
     {% endfor %}
 {% endblock %}
