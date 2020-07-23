@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Price
 {
     const CATEGORY = ["catégorie 1" =>"cat 1","catégorie 2"=>"cat 2","catégorie 3" => "cat 3"];
-    const TYPE = ["Adulte" =>"Adulte","Enfant"=>"Enfant"];
+    const TYPE = ["Plein Tarif" =>"Plein Tarif","Tarif Réduit"=>"Tarif Réduit"];
 
     /**
      * @ORM\Id()

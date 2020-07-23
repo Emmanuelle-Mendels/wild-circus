@@ -10,7 +10,7 @@
     <thead>
     <tr>
         <th>Catégorie</th>
-        <th>Type</th>
+        <th>Type *</th>
         <th>Montant</th>
     </tr>
     </thead>
@@ -24,7 +24,11 @@
     {% endfor %}
     </tbody>
 </table>
+
     <div class="text-center m-2">
+        <p class="text-black-50">* Le tarif réduit est applicable pour les enfants de moins de 14 ans, les demandeurs d'emploi, les étudiant et détenteur d'une carte d'invalidité.</p>
+    </div>
+    <div class="text-center m-5">
         <p>Pour les réservations de groupe, veuillez passer par le formulaire de contact en nous précisant le nombre de participant et leur âge afin que nous puissions vous faire parvenir un devis.</p>
         <a class="btn btn-primary" href="{{ path('app_contact') }}">Contact</a>
     </div>

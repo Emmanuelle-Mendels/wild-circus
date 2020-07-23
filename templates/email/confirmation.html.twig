@@ -8,6 +8,6 @@
 <div>Votre réservation</div>
 <p>Référence n° {{ reservation.id }}</p>
 <p>Catégorie : {{ reservation.category}}</p>
-<p>nombre de billets adultes: {{ reservation.nbadult}}</p>
-<p>nombre de billets enfants: {{ reservation.nbchild}}</p>
+<p>nombre de billets plein tarif: {{ reservation.nbadult}}</p>
+<p>nombre de billets tarif réduit: {{ reservation.nbchild}}</p>
 <p>Pour le spectale du {{ reservation.representation.date|date('d-m-Y H:i')}}</p>

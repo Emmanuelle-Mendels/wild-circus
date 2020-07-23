@@ -36,9 +36,10 @@ class ReservationType extends AbstractType
                 'label' => "Catégorie",
             ])
             ->add('nb_adult', IntegerType::class, [
-                'label' => "Nombre de billets adultes"])
+                'label' => "Nombre de billets plein tarif"])
             ->add('nb_child', IntegerType::class, [
-                'label' => "Nombre de billets enfants"]);
+                'label' => "Nombre de billets tarif réduit",
+                'help' => "Le tarif réduit est applicable pour les enfants de moins de 14 ans, les demandeurs d'emploi, les étudiant et détenteur d'une carte d'invalidité."]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
