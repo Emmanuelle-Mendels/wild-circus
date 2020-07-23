@@ -1,0 +1,13 @@
+<h1>Confirmation de votre réservation</h1>
+
+<div>Vos Coordonnées : </div>
+<p>{{ reservation.name }}</p>
+<p>{{ reservation.email}}</p>
+<p>{{ reservation.phone}}</p>
+
+<div>Votre réservation</div>
+<p>Référence n° {{ reservation.id }}</p>
+<p>Catégorie : {{ reservation.category}}</p>
+<p>nombre de billets plein tarif: {{ reservation.nbadult}}</p>
+<p>nombre de billets tarif réduit: {{ reservation.nbchild}}</p>
+<p>Pour le spectale du {{ reservation.representation.date|date('d-m-Y H:i')}}</p>

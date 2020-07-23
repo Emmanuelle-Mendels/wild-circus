@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Show;
+use App\Entity\Performance;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Show|null find($id, $lockMode = null, $lockVersion = null)
- * @method Show|null findOneBy(array $criteria, array $orderBy = null)
- * @method Show[]    findAll()
- * @method Show[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Performance|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Performance|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Performance[]    findAll()
+ * @method Performance[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ShowRepository extends ServiceEntityRepository
+class PerformanceRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Show::class);
+        parent::__construct($registry, Performance::class);
     }
 
     // /**
-    //  * @return Show[] Returns an array of Show objects
+    //  * @return Performance[] Returns an array of Performance objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ShowRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Show
+    public function findOneBySomeField($value): ?Performance
     {
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')

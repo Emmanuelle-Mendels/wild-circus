@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tarfis{% endblock %}
+
+{% block body %}
+<section class="col-10 offset-1 my-4">
+    <h1 class="text-center text-primary m-5">Nos tarifs</h1>
+
+<table class="table text-center table-striped">
+    <thead>
+    <tr>
+        <th>Catégorie</th>
+        <th>Type *</th>
+        <th>Montant</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for price in prices %}
+    <tr>
+        <td>{{ price.category }}</td>
+        <td>{{ price.type }}</td>
+        <td>{{ price.amout }} €</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+    <div class="text-center m-2">
+        <p class="text-black-50">* Le tarif réduit est applicable pour les enfants de moins de 14 ans, les demandeurs d'emploi, les étudiant et détenteur d'une carte d'invalidité.</p>
+    </div>
+    <div class="text-center m-5">
+        <p>Pour les réservations de groupe, veuillez passer par le formulaire de contact en nous précisant le nombre de participant et leur âge afin que nous puissions vous faire parvenir un devis.</p>
+        <a class="btn btn-primary" href="{{ path('app_contact') }}">Contact</a>
+    </div>
+        <div class="col text-center mb-5">
+    <img class="w-50" src="{{ asset('build/plan-wild.png') }}" alt="plan wild circus">
+        </div>
+
+    <div class="text-center bg-light">
+        <a class="btn btn-lg btn-primary m-5" href="{{ path('app_reservation') }}">Effectuer une Réservations</a>
+    </div>
+
+</section>
+{% endblock %}

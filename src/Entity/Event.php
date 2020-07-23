@@ -3,13 +3,19 @@
 namespace App\Entity;
 
 use App\Repository\EventRepository;
+use \DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity(repositoryClass=EventRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
+ * @Vich\Uploadable
  */
 class Event
 {
+    const MAX_SIZE="500k";
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -19,23 +25,46 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez indiquer le titre de l'article")
+     * @Assert\Length(max=255, maxMessage="Le nom du titre {{ value }} est trop long,
+     * il ne devrait pas dépasser {{ limit }} caractères")
      */
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $picture;
 
     /**
+     * @Vich\UploadableField(mapping="event_image", fileNameProperty="picture")
+     * @var File|null
+     * @Assert\File(maxSize = Event::MAX_SIZE,
+     *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
+     * il ne doit pas dépasser {{ limit }} {{ suffix }}",
+     *     mimeTypes = {"image/jpeg", "image/jpg", "image/gif","image/png"},
+     *     mimeTypesMessage = "Veuillez entrer un type de fichier valide: jpg, jpeg, png ou gif.")
+     */
+    private $pictureFile;
+
+    /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Veuillez donner plus de détails sur l'évènement")
      */
     private $description;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="date")
+     * @Assert\NotBlank(message = "Veuillez indiquer la date de parution de l'article sous le format JJ/MM/AAAA")
+     * @Assert\Date(message = "Veuillez indiquer une date valide")
      */
-    private $focus;
+    private $date;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var DateTime|null
+     */
+    private $updatedAt;
 
     public function getId(): ?int
     {
@@ -59,7 +88,7 @@ class Event
         return $this->picture;
     }
 
-    public function setPicture(string $picture): self
+    public function setPicture($picture): self
     {
         $this->picture = $picture;
 
@@ -78,15 +107,30 @@ class Event
         return $this;
     }
 
-    public function getFocus(): ?bool
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->focus;
+        return $this->date;
     }
 
-    public function setFocus(bool $focus): self
+    public function setDate(\DateTimeInterface $date): self
     {
-        $this->focus = $focus;
+        $this->date = $date;
 
         return $this;
     }
+
+    public function setPictureFile(File $picture = null)
+    {
+        $this->pictureFile = $picture;
+        if ($picture) {
+            $this->updatedAt = new DateTime('now');
+        }
+    }
+
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
+
+
 }

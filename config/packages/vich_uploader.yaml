@@ -1,0 +1,18 @@
+vich_uploader:
+  db_driver: orm
+
+  mappings:
+    event_image:
+      uri_prefix: /uploads/events
+      upload_destination:  '%upload_directory%/events'
+      namer: Vich\UploaderBundle\Naming\UniqidNamer
+
+    performance_image:
+      uri_prefix: /uploads/performances
+      upload_destination:  '%upload_directory%/performances'
+      namer: Vich\UploaderBundle\Naming\UniqidNamer
+
+    artist_image:
+      uri_prefix: /uploads/artists
+      upload_destination:  '%upload_directory%/artists'
+      namer: Vich\UploaderBundle\Naming\UniqidNamer

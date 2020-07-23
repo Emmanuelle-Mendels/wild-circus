@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artistes{% endblock %}
+
+{% block body %}
+    <section class="col-10 offset-1 my-4">
+        <h1 class="text-center text-primary m-5">Nos artistes</h1>
+        {% for artist in artists %}
+            <div class="container-fluid">
+                <div class="row artist">
+                    <div class="col-md-3">
+                        <img class="artist-img w-100" src="{{ vich_uploader_asset(artist, 'pictureFile') }}"
+                             alt="{{ artist.name }}">
+                    </div>
+                    <div class="col-md-8">
+                        <h3 class="">{{ artist.name }}</h3>
+                        <p>{{ artist.speciality }}</p>
+                        <p class="">{{ artist.text|nl2br }}</p>
+                        <h4 class="text-center">Retrouvez {{ artist.name }} dans son numéro :  {% for performance in artist.performances %}
+                                <a href="{{ path('app_performance') }}#performance_{{ performance.id }}"> {{ performance.name ?? ''}}</a>
+                            {% endfor %}</h4>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}

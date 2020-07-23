@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Évènements{% endblock %}
+
+{% block body %}
+    <section class="col-10 offset-1 my-4">
+        <h1 class="text-center text-primary m-5">Évènements</h1>
+        {% for event in events %}
+            <div class="w-100 " id="article_{{ event.id }}">
+                <div class="text-center">
+                    <img class="event-img w-100" src="{{ vich_uploader_asset(event, 'pictureFile') }}"
+                         alt="{{ event.title }}">
+                    <h5 class="mt-4">{{ event.title }}</h5>
+                    <div class="p-2">{{ event.date|date("d-m-y") }}</div>
+                    <p class="text-left">{{ event.description|nl2br }}</p>
+                </div>
+            </div>
+            <hr class="mb-5">
+        {% endfor %}
+    </section>
+{% endblock %}

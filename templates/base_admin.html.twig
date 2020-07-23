@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Home Admin{% endblock %}
+
+
+{% block body %}
+    <h1 class="text-primary text-center m-5">Administration</h1>
+<section class="col-10 offset-1 my-4">
+    <div class="text-center">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('representation_index') }}">Représentation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('price_index') }}">Prix</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('reservation_index') }}">Réservations</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('event_index') }}">Évènements</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{ path('artist_index') }}">Artistes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('performance_index') }}">Performances</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('faq_index') }}">F.A.Q.</a>
+            </li>
+        </ul>
+    </div>
+</section>
+{% endblock %}

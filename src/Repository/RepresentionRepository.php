@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Represention;
+use App\Entity\Representation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Represention|null find($id, $lockMode = null, $lockVersion = null)
- * @method Represention|null findOneBy(array $criteria, array $orderBy = null)
- * @method Represention[]    findAll()
- * @method Represention[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Representation|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Representation|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Representation[]    findAll()
+ * @method Representation[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class RepresentionRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Represention::class);
+        parent::__construct($registry, Representation::class);
     }
 
     // /**
-    //  * @return Represention[] Returns an array of Represention objects
+    //  * @return Representation[] Returns an array of Representation objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class RepresentionRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Represention
+    public function findOneBySomeField($value): ?Representation
     {
         return $this->createQueryBuilder('r')
             ->andWhere('r.exampleField = :val')

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Performances{% endblock %}
+
+{% block body %}
+    <section class="col-10 offset-1 my-4">
+        <h1 class="text-center text-primary m-5">Nos performances</h1>
+        {% for performance in performances %}
+            <div class="container-fluid" id="performance_{{ performance.id }}">
+                <div class="row artist">
+                    <div class="col-md-3">
+                        <img class="artist-img w-100" src="{{ vich_uploader_asset(performance, 'pictureFile') }}"
+                             alt="{{ performance.name }}">
+                    </div>
+                    <div class="col-md-8">
+                        <h3 class="">{{ performance.name }}</h3>
+                        <p class="">{{ performance.description|nl2br }}</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}
