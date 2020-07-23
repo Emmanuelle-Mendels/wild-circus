@@ -49,12 +49,14 @@ class Event
 
     /**
      * @ORM\Column(type="text")
-     *@Assert\NotBlank(message="Veuillez décrire la admin_performance")
+     * @Assert\NotBlank(message="Veuillez donner plus de détails sur l'évènement")
      */
     private $description;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank(message = "Veuillez indiquer la date de parution de l'article sous le format JJ/MM/AAAA")
+     * @Assert\Date(message = "Veuillez indiquer une date valide")
      */
     private $date;
 

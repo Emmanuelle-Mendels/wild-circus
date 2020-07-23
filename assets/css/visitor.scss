@@ -1,4 +1,4 @@
-.container-artist:nth-child(even) {
+.container-fluid:nth-child(even) {
   .artist {
     flex-direction: row-reverse;
   }
@@ -9,7 +9,6 @@
 }
 
 .artist-img {
-  width: 25%;
   object-fit: cover;
 }
 

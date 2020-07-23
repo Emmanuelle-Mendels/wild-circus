@@ -21,31 +21,41 @@ class Reservation
 
     /**
      * @ORM\Column(type="string", length=255)
+     * Assert\NotBlank(message = "Merci de saisir votre nom suivi de votre prénom")
      */
     private $Name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(max=100, maxMessage="Votre email doit être inférieur à {{ limit }} caractères")
+     * @Assert\Email(message = "L'email '{{ value }}' n'est pas un format d'email valide.")
+     * @Assert\NotBlank(message="Merci de saisir votre adresse email")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de saisir votre numéro de téléphone")
+     * @Assert\Length(min=10, max=20, minMessage="Votre numéro de téléphone doit être composé de 10 chiffres",
+     *      maxMessage="Votre numéro de téléphone doit être composé de 10 chiffres")
      */
     private $phone;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Choice(choices=App\Entity\Reservation::CATEGORY, message="Veuillez choisir une catégorie dans la liste.")
      */
     private $category;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(min=1, max=4, notInRangeMessage="Vous devez au minimum réserver une place adulte. Vous ne pouvez pas prendre au delà de {{ max }} places adulte.")
      */
     private $nb_adult;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Range(min = 0, max = 6, notInRangeMessage="Vous ne pouvez pas réserver plus de {{ max }} places enfants.")
      */
     private $nb_child;
 

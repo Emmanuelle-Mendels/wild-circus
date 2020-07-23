@@ -3,20 +3,25 @@
 {% block title %}Artistes{% endblock %}
 
 {% block body %}
-<section class="col-10 offset-1 my-4">
-    <h1 class="text-center text-primary m-5">Nos artistes</h1>
-    {% for artist in artists %}
-        <div class="container-artist ">
-            <div class="artist d-flex flex-wrap">
-                <img class="artist-img" src="{{ vich_uploader_asset(artist, 'pictureFile') }}"
-                     alt="{{ artist.name }}">
-                <div class="col">
-                <h5 class="">{{ artist.name }}</h5>
-                <p>{{ artist.speciality }}</p>
-                <p class="">{{ artist.text|nl2br }}</p>
+    <section class="col-10 offset-1 my-4">
+        <h1 class="text-center text-primary m-5">Nos artistes</h1>
+        {% for artist in artists %}
+            <div class="container-fluid">
+                <div class="row artist">
+                    <div class="col-md-3">
+                        <img class="artist-img w-100" src="{{ vich_uploader_asset(artist, 'pictureFile') }}"
+                             alt="{{ artist.name }}">
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="">{{ artist.name }}</h5>
+                        <p>{{ artist.speciality }}</p>
+                        <p class="">{{ artist.text|nl2br }}</p>
+                        <p>Retrouvez {{ artist.name }} dans son numéro :  {% for performance in artist.performances %}
+                                <a href="{{ path('app_performance') }}#performance_{{ performance.id }}"> {{ performance.name ?? ''}}</a>
+                            {% endfor %}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    {% endfor %}
-</section>
+        {% endfor %}
+    </section>
 {% endblock %}

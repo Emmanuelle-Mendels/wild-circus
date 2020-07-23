@@ -8,5 +8,5 @@
 <div>Votre réservation</div>
 <p>Catégorie : {{ reservation.category}}</p>
 <p>nombre de billets adultes: {{ reservation.nbadult}}</p>
-<p>nombre de billets enfants: {{ reservation.nbadult}}</p>
-<p>{{ reservation.representation.date|date('Y-m-d H:i')}}</p>
+<p>nombre de billets enfants: {{ reservation.nbchild}}</p>
+<p>Pour le spectale du {{ reservation.representation.date|date('d-m-Y H:i')}}</p>

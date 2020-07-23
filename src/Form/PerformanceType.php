@@ -19,7 +19,9 @@ class PerformanceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Name', TextType::class)
+            ->add('Name', TextType::class, [
+                'label' => 'Nom',
+            ])
             ->add('pictureFile', VichImageType::class, [
                 'label' => 'Image à télécharger',
                 'help' => 'le fichier ne doit pas dépasser ' . Event::MAX_SIZE,
@@ -33,6 +35,7 @@ class PerformanceType extends AbstractType
             ->add('focus')
             ->add('video')
             ->add('Artist', EntityType::class, [
+                'label'=> 'Artiste',
                 'class' => Artist::class,
                 'choice_label' => 'name',
                 'expanded' => true,

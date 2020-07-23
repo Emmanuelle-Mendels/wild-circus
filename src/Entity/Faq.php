@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\FaqRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=FaqRepository::class)
@@ -19,11 +20,13 @@ class Faq
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de saisir une question")
      */
     private $question;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Merci de saisir une réponse")
      */
     private $response;
 

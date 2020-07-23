@@ -19,11 +19,15 @@
     <tr>
         <td>{{ price.category }}</td>
         <td>{{ price.type }}</td>
-        <td>{{ price.amout }}</td>
+        <td>{{ price.amout }} €</td>
     </tr>
     {% endfor %}
     </tbody>
 </table>
+    <div class="text-center m-2">
+        <p>Pour les réservations de groupe, veuillez passer par le formulaire de contact en nous précisant le nombre de participant et leur âge afin que nous puissions vous faire parvenir un devis.</p>
+        <a class="btn btn-primary" href="{{ path('app_contact') }}">Contact</a>
+    </div>
         <div class="col text-center mb-5">
     <img class="w-50" src="{{ asset('build/plan-wild.png') }}" alt="plan wild circus">
         </div>

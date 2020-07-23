@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Price;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,8 +21,10 @@ class PriceType extends AbstractType
             ])
             ->add('type',  ChoiceType::class, [
                 'choices' => Price::TYPE,
-                'label' => "Catégorie"])
-            ->add('amout')
+                'label' => "Type"])
+            ->add('amout', NumberType::class,  [
+                'label' => 'Montant'
+            ])
         ;
     }
 

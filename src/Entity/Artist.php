@@ -51,11 +51,15 @@ class Artist
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez indiquer la spécialité de l'artiste")
+     * @Assert\Length(max=255, maxMessage="Le nom de la spécialité de l'artiste {{ value }} est trop long,
+     * il ne devrait pas dépasser {{ limit }} caractères")
      */
     private $speciality;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Veuillez renseigner quelques lignes sur l'artiste")
      */
     private $text;
 

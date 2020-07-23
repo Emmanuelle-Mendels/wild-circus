@@ -18,7 +18,8 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class)
+            ->add('Title', TextType::class, [
+            'label' => 'Titre'])
             ->add('pictureFile', VichImageType::class, [
                 'label' => 'Image à télécharger',
                 'help' => 'le fichier ne doit pas dépasser ' . Event::MAX_SIZE,

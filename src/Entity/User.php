@@ -6,6 +6,7 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -13,6 +14,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface
 {
+    const ROLES = ['ROLE_Admin', 'Role_Membre'];
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -22,11 +24,16 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank
+     * @Assert\Email
      */
     private $email;
 
     /**
      * @ORM\Column(type="json")
+     * @Assert\All({
+     * @Assert\Choice(choices=App\Entity\User::ROLES, message="Le rôle {{ value }} n'est pas autorisé.")
+     * })
      */
     private $roles = [];
 

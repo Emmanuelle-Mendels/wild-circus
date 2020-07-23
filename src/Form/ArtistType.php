@@ -18,7 +18,9 @@ class ArtistType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Name', TextType::class)
+            ->add('Name', TextType::class, [
+                'label' => 'Nom',
+            ])
             ->add('pictureFile', VichImageType::class, [
                 'label' => 'Image à télécharger',
                 'help' => 'le fichier ne doit pas dépasser ' . Artist::MAX_SIZE,
@@ -28,8 +30,12 @@ class ArtistType extends AbstractType
                 'download_link' => false,
                 'delete_label' => 'Supprimer cette image',
             ])
-            ->add('speciality', TextType::class)
-            ->add('text', TextareaType::class)
+            ->add('speciality', TextType::class, [
+                'label' => 'Spécialité',
+            ])
+            ->add('text', TextareaType::class, [
+                'label' => 'Présentation',
+            ])
             ->add('focus')
             ->add('performances',  EntityType::class, [
                 'class' => Performance::class,
