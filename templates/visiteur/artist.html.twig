@@ -13,12 +13,12 @@
                              alt="{{ artist.name }}">
                     </div>
                     <div class="col-md-8">
-                        <h5 class="">{{ artist.name }}</h5>
+                        <h3 class="">{{ artist.name }}</h3>
                         <p>{{ artist.speciality }}</p>
                         <p class="">{{ artist.text|nl2br }}</p>
-                        <p>Retrouvez {{ artist.name }} dans son numéro :  {% for performance in artist.performances %}
+                        <h4 class="text-center">Retrouvez {{ artist.name }} dans son numéro :  {% for performance in artist.performances %}
                                 <a href="{{ path('app_performance') }}#performance_{{ performance.id }}"> {{ performance.name ?? ''}}</a>
-                            {% endfor %}</p>
+                            {% endfor %}</h4>
                     </div>
                 </div>
             </div>
