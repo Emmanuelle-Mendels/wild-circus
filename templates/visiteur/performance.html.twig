@@ -3,13 +3,19 @@
 {% block title %}Performances{% endblock %}
 
 {% block body %}
+<section class="col-10 offset-1 my-4">
     <h1 class="text-center text-primary m-5">Nos performances</h1>
     {% for performance in performances %}
-        <div class="text-center">
-            <img class="" src="{{ vich_uploader_asset(performance, 'pictureFile') }}"
-                 alt="{{ performance.name }}">
-            <h5 class="">{{ performance.name }}</h5>
-            <p class="">{{ performance.description }}</p>
+        <div class="container-artist flex flex-wrap">
+            <div class="artist d-flex flex-wrap">
+                <img class="artist-img" src="{{ vich_uploader_asset(performance, 'pictureFile') }}"
+                     alt="{{ performance.name }}">
+                <div class="col">
+                    <h5 class="">{{ performance.name }}</h5>
+                    <p class="">{{ performance.description|nl2br }}</p>
+                </div>
+            </div>
         </div>
     {% endfor %}
+</section>
 {% endblock %}

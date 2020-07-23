@@ -3,15 +3,15 @@
 {% block title %}Tarfis{% endblock %}
 
 {% block body %}
+<section class="col-10 offset-1 my-4">
     <h1 class="text-center text-primary m-5">Nos tarifs</h1>
-<table class="table">
+
+<table class="table text-center table-striped">
     <thead>
     <tr>
         <th>Catégorie</th>
         <th>Type</th>
         <th>Montant</th>
-        <th></th>
-        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -24,8 +24,13 @@
     {% endfor %}
     </tbody>
 </table>
-    <div class="text-center m-5 bg-light">
+        <div class="col text-center mb-5">
+    <img class="w-50" src="{{ asset('build/plan-wild.png') }}" alt="plan wild circus">
+        </div>
+
+    <div class="text-center bg-light">
         <a class="btn btn-lg btn-primary m-5" href="{{ path('app_reservation') }}">Effectuer une Réservations</a>
     </div>
 
+</section>
 {% endblock %}

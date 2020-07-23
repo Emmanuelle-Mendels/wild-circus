@@ -18,7 +18,7 @@ class PerformanceController extends AbstractController
     {
         $performances = $this->getDoctrine()
             ->getRepository(Performance::class)
-            ->findBy([], ['Name' => 'ASC']);
+            ->findBy([], ['id' => 'ASC']);
 
         return $this->render('visiteur/performance.html.twig', [
             'performances' => $performances,

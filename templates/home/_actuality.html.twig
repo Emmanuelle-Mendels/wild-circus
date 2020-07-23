@@ -1,18 +1,22 @@
 <section class="col-10 offset-1 my-4">
     <h2 class="text-center m-5">Dernières informations</h2>
     <div class="row justify-content-center justify-content-md-around">
-    {% for event in events %}
-        <a href="{{ path('app_event')}}#article_{{ event.id }}" class="text-decoration-none">
-    <div class="card event-card">
-        <img class="card-img-top event-card-img" src="{{ vich_uploader_asset(event, 'pictureFile') }}"
-             alt="{{ event.title }}">
-        <div class="card-body">
-            <h5 class="card-title">{{ event.title }}</h5>
-            <p class="card-text">{{ event.description|length > 150 ? event.description|slice(0, 150) ~ '...' : event.description }} }}</p>
-            <a href="#" class="btn btn-primary">Plus d'infos</a>
-        </div>
-    </div>
-        </a>
-    {% endfor %}
+        {% for event in events %}
+            <div class="card event-card">
+                <img class="card-img-top event-card-img" src="{{ vich_uploader_asset(event, 'pictureFile') }}"
+                     alt="{{ event.title }}">
+                <div class="card-body">
+                    <div class="text-card-event">
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <p class="card-text">{{ event.description|length > 150 ? event.description|slice(0, 150) ~ '...' : event.description }}
+                            }}</p>
+                    </div>
+                    <div class="align-baseline text-center">
+                        <a href="{{ path('app_event') }}#article_{{ event.id }}" class="btn btn-primary">Plus
+                            d'infos</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 </section>

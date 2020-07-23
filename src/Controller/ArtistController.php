@@ -18,7 +18,7 @@ class ArtistController extends AbstractController
     {
         $artists = $this->getDoctrine()
             ->getRepository(Artist::class)
-            ->findBy(['focus' => true], ['id' => 'DESC']);
+            ->findBy(['focus' => true], ['Name' => 'ASC']);
 
         return $this->render('visiteur/artist.html.twig', [
             'artists' => $artists,

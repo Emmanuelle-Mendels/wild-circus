@@ -3,14 +3,20 @@
 {% block title %}Artistes{% endblock %}
 
 {% block body %}
+<section class="col-10 offset-1 my-4">
     <h1 class="text-center text-primary m-5">Nos artistes</h1>
     {% for artist in artists %}
-        <div class="text-center">
-            <img class="" src="{{ vich_uploader_asset(artist, 'pictureFile') }}"
-                 alt="{{ artist.name }}">
-            <h5 class="">{{ artist.name }}</h5>
-            <p>{{ artist.speciality }}</p>
-            <p class="">{{ artist.text }}</p>
+        <div class="container-artist flex flex-wrap">
+            <div class="artist d-flex flex-wrap">
+                <img class="artist-img" src="{{ vich_uploader_asset(artist, 'pictureFile') }}"
+                     alt="{{ artist.name }}">
+                <div class="col">
+                <h5 class="">{{ artist.name }}</h5>
+                <p>{{ artist.speciality }}</p>
+                <p class="">{{ artist.text|nl2br }}</p>
+                </div>
+            </div>
         </div>
     {% endfor %}
+</section>
 {% endblock %}

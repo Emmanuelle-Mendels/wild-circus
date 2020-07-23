@@ -3,6 +3,7 @@
 {% block title %}Réservations{% endblock %}
 
 {% block body %}
+<section class="col-10 offset-1 my-4">
     <h1 class="text-center text-primary m-5">Effectuer une réservation</h1>
     {% form_theme form  'bootstrap_4_layout.html.twig' %}
     <div class="col-10 offset-1">
@@ -13,6 +14,6 @@
         </div>
         {{ form_end(form) }}
     </div>
-
+</section>
 
 {% endblock %}
