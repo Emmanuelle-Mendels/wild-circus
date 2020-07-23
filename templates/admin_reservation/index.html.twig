@@ -13,6 +13,7 @@
                 <th>Nom</th>
                 <th>Email</th>
                 <th>Téléphone</th>
+                <th>Représentation</th>
                 <th>Categorie</th>
                 <th>Nb Adultes</th>
                 <th>Nb Enfants</th>
@@ -26,6 +27,7 @@
                 <td>{{ reservation.Name }}</td>
                 <td>{{ reservation.email }}</td>
                 <td>{{ reservation.phone }}</td>
+                <td>{{ reservation.representation.date|date('d-m-Y H:i')}}</td>
                 <td>{{ reservation.category }}</td>
                 <td>{{ reservation.nbAdult }}</td>
                 <td>{{ reservation.nbChild }}</td>
