@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Reservations{% endblock %}
+{% block title %}Réservations{% endblock %}
 
 {% block body %}
-    <h1 class="text-center text-primary m-5">Reservations</h1>
+    <h1 class="text-center text-primary m-5">Réservations</h1>
 <div class="text-right m-5">
     <a class="btn-primary btn" href="{{ path('reservation_new') }}">Nouveau</a>
 </div>
     <table class="table">
         <thead>
             <tr>
+                <th>id</th>
                 <th>Nom</th>
                 <th>Email</th>
                 <th>Téléphone</th>
@@ -24,6 +25,7 @@
         <tbody>
         {% for reservation in reservations %}
             <tr>
+                <td>{{ reservation.id }}</td>
                 <td>{{ reservation.Name }}</td>
                 <td>{{ reservation.email }}</td>
                 <td>{{ reservation.phone }}</td>

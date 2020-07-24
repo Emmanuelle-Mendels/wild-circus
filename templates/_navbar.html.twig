@@ -40,7 +40,7 @@
             <a class="nav-link">{{ app.user.email }}</a>
             <a class="nav-link" href="{{ path('profil_show') }}">Mon compte</a>
             {% if is_granted('ROLE_ADMIN') %}
-                <a class="nav-link" href="{{ path('app_admin') }}">Accueil Admin</a>
+                <a class="nav-link" href="{{ path('app_admin') }}">Menu Admin</a>
             {% endif %}
                 <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
 

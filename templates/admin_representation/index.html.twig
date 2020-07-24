@@ -10,7 +10,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Date</th>
                 <th>Heure</th>
                 <th></th>
@@ -20,7 +19,6 @@
         <tbody>
         {% for representation in representations %}
             <tr>
-                <td >{{ representation.id }}</td>
                 <td>{{ representation.date ? representation.date|date('d-m-Y') : '' }}</td>
                 <td>{{ representation.date ? representation.date|date("\\ H:i") : '' }}</td>
                 <td class="align-middle">
