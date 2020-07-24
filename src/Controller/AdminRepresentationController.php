@@ -21,7 +21,7 @@ class AdminRepresentationController extends AbstractController
     public function index(RepresentionRepository $representionRepository): Response
     {
         return $this->render('admin_representation/index.html.twig', [
-            'representations' => $representionRepository->findAll(),
+            'representations' => $representionRepository->findBy([], ['date' => 'ASC']),
         ]);
     }
 
